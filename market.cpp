@@ -18,7 +18,7 @@ void Market::refresh(mytime* time){
     if(time->day == 2 && is_pay_mounth_costs){
         is_pay_mounth_costs = false;
     }
-    if(stack.)
+
 }
 
 std::string Market::get_message(){
