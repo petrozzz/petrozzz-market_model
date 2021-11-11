@@ -16,6 +16,8 @@ struct Good{
     double price;
     mytime day_produced;
     mytime day_expiration;
+
+    void init_good(int id);
 };
 
 
