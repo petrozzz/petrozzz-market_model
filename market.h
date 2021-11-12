@@ -6,16 +6,19 @@
 #include "good.h"
 #include "mytime.h"
 #include "marketstack.h"
+#include "customer.h"
 
 struct Market{
 public:
     enum MarketState{Open, Close};
-    void refresh(mytime* time);
+    void refresh(Mytime* time);
     std::string get_message();
     void init_market();
+    void order_goods(int id, int count);
 
-private:
-    mytime* time;
+
+public:
+    Mytime* time;
     std::string message;
     MarketState state = MarketState::Close;
     bool canwork();
@@ -25,5 +28,8 @@ private:
     double mounth_costs;
     bool is_pay_mounth_costs;
     MarketStack stack;
+    Customer customer;
+    Good good;
+    int time_count = 0;
 };
 #endif // MARKET_H

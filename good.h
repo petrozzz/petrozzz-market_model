@@ -4,6 +4,7 @@
 #include "mytime.h"
 
 using namespace std;
+#define NUM_LEVELOFNEED 3
 
 struct Good{
     string name;
@@ -14,10 +15,13 @@ struct Good{
     int depth;
     double purchase_price;
     double price;
-    mytime day_produced;
-    mytime day_expiration;
-
+    int expiration;
+    Mytime day_produced;
+    Mytime day_expiration;    
+    int min_count[NUM_LEVELOFNEED];
     void init_good(int id);
+    void set_min_count(int *min_count);
+    int all_ids[5]{11, 21, 31, 41, 42};
 };
 
 

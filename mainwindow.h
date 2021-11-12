@@ -23,6 +23,8 @@ private slots:
     void on_timeout();
     void on_pb_start_clicked();
 
+    void on_pb_store_clicked();
+
 private:
     Ui::MainWindow *ui;
     QTimer* timer = nullptr;
@@ -30,8 +32,13 @@ private:
 
     void refresh_time();
     Market* market = nullptr;
-    mytime *time = nullptr;
+    Mytime *time = nullptr;
     void set_mytime();
+    bool is_store = true;
+    void init_tb_store();
+    void refresh_tb_store();
+    void showhide_store();
+
 };
 
 #endif // MAINWINDOW_H
