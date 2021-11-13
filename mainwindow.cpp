@@ -78,11 +78,11 @@ void MainWindow::refresh_tb_store(){
 
 void MainWindow::showhide_store(){
     if(is_store){
-        ui->pb_store->setText("События");
+        ui->pb_store->setText("Склад");
         ui->te_log->setVisible(true);
         ui->tb_store->setVisible(false);
     } else {
-        ui->pb_store->setText("Склад");
+        ui->pb_store->setText("События");
         ui->te_log->setVisible(false);
         ui->tb_store->setVisible(true);
     }

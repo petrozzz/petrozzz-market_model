@@ -43,6 +43,7 @@ int MarketStack::remove_good(int n){
             for (int k = n+1; k < size; k++) {
                 buffer[k-1] = goods[k];
             }
+            balance -= goods[n].price;
             delete [] goods;
             goods = buffer;
             size--;

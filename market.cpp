@@ -66,7 +66,7 @@ std::string Market::get_message(){
 
 void Market::init_market(){
     balance = 10000.0;
-    mounth_costs = 100.0;
+    mounth_costs = 2000.0;
     is_pay_mounth_costs = false;
     srand(std::time(NULL));
     customer.init_customer();
