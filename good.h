@@ -9,6 +9,7 @@ using namespace std;
 struct Good{
     string name;
     int id;
+    int index;
     int weight;
     int width;
     int height;
@@ -22,6 +23,7 @@ struct Good{
     void init_good(int id);
     void set_min_count(int *min_count);
     int all_ids[5]{11, 21, 31, 41, 42};
+    int index_fromid(int id);
 };
 
 

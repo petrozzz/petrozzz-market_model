@@ -3,10 +3,13 @@
 
 #include <ctime>
 #include <string>
+#include <iostream>
+#include <fstream>
 #include "good.h"
 #include "mytime.h"
 #include "marketstack.h"
 #include "customer.h"
+#include "audit.h"
 
 struct Market{
 public:
@@ -30,6 +33,8 @@ public:
     MarketStack stack;
     Customer customer;
     Good good;
+    Audit audit;
     int time_count = 0;
+    bool audit_on;
 };
 #endif // MARKET_H

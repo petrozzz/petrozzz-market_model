@@ -1,11 +1,16 @@
 #include "market.h"
 
+
 void Market::refresh(Mytime* time){
     this->time = time;
     time_count++;
     if((state == MarketState::Open) && !canwork()){
         state = MarketState::Close;
         message = "The market close";
+        if(audit_on && time->wday == 7){
+            string str = to_string(time->day) + "." + to_string(time->month) + "." + to_string(time->year);
+            audit.write_file(str);
+        }
     }
     if(state == MarketState::Close && canwork()){
         state = MarketState::Open;
@@ -32,7 +37,7 @@ void Market::refresh(Mytime* time){
         customer.balance = rand() % 1000;
         customer.appeared();
         for(int k =0; k < customer.size_ids; k++){
-            for(int n = 0; n < customer.desired_counts[k]; k++){
+            for(int n = 0; n < customer.desired_counts[k]; n++){
                 int num = stack.find_good(good.all_ids[k]);
                 if(num >= 0 ){
                     double price_of_good = stack.goods[num].price;
@@ -41,6 +46,10 @@ void Market::refresh(Mytime* time){
                         customer.balance -= price_of_good;
                         balance += price_of_good;
                         message = "The customers by " + name + ".";
+                        if(audit_on){
+                            audit.counts_solded[k]++;
+                            audit.money_solded[k]+=price_of_good;
+                        }
                     }
                 }
             }
@@ -68,8 +77,11 @@ void Market::init_market(){
     balance = 10000.0;
     mounth_costs = 2000.0;
     is_pay_mounth_costs = false;
-    srand(std::time(NULL));
+    srand(int(std::time(NULL)));
     customer.init_customer();
+    string str = "audit.txt";
+    audit.init(str.data());
+    audit.reset();
 }
 
 void Market::order_goods(int id, int count){
@@ -77,8 +89,12 @@ void Market::order_goods(int id, int count){
     good.init_good(id);
     for(int k = 0; k < count; k++){
         if(balance > good.purchase_price){
-            stack.add_good(good, good.purchase_price*1.1);
+            stack.add_good(good, good.purchase_price*1.3);
             balance -= good.purchase_price;
+            if(audit_on){
+                audit.counts_bouth[good.index]++;
+                audit.money_bouth[good.index] += good.purchase_price;
+            }
         }
         else{
             message += "\n We can not order " + good.name + ". The balance is smaller. (Balance: " + std::to_string(balance) + ")";

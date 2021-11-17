@@ -57,6 +57,7 @@ void Good::init_good(int id){
     default:
         break;
     }
+    index = index_fromid(id);
 }
 
 void Good::set_min_count(int *min_count){
@@ -64,3 +65,12 @@ void Good::set_min_count(int *min_count){
         this->min_count[k] = min_count[k];
     }
 }
+
+int Good::index_fromid(int id){
+    for(int k = 0; k < 5; k++){
+        if(id == all_ids[k])
+            return k;
+    }
+    return -1;
+}
+

@@ -10,6 +10,11 @@
     <height>300</height>
    </rect>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>14</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>Панель управления</string>
   </property>
@@ -19,6 +24,11 @@
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <widget class="QPushButton" name="pb_start">
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Старт</string>
         </property>
@@ -26,13 +36,30 @@
       </item>
       <item>
        <widget class="QPushButton" name="pb_store">
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>Склад</string>
         </property>
        </widget>
       </item>
       <item>
+       <widget class="QCheckBox" name="cb_Audit">
+        <property name="text">
+         <string>Аудит</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <spacer name="verticalSpacer">
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -50,6 +77,11 @@
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QTableWidget" name="tb_store">
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
         <attribute name="horizontalHeaderVisible">
          <bool>false</bool>
         </attribute>
@@ -59,13 +91,19 @@
        </widget>
       </item>
       <item>
-       <widget class="QTextEdit" name="te_log"/>
+       <widget class="QTextEdit" name="te_log">
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QLabel" name="lb_time">
         <property name="font">
          <font>
-          <pointsize>12</pointsize>
+          <pointsize>14</pointsize>
          </font>
         </property>
         <property name="text">

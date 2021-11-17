@@ -25,6 +25,8 @@ private slots:
 
     void on_pb_store_clicked();
 
+    void on_cb_Audit_clicked();
+
 private:
     Ui::MainWindow *ui;
     QTimer* timer = nullptr;

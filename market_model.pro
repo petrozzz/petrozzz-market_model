@@ -29,13 +29,15 @@ SOURCES += main.cpp\
     good.cpp \
     mytime.cpp \
     marketstack.cpp \
-    customer.cpp
+    customer.cpp \
+    audit.cpp
 
 HEADERS  += mainwindow.h \
     market.h \
     good.h \
     mytime.h \
     marketstack.h \
-    customer.h
+    customer.h \
+    audit.h
 
 FORMS    += mainwindow.ui

@@ -106,5 +106,4 @@ void MainWindow::on_pb_store_clicked(){
 
 void MainWindow::on_cb_Audit_clicked(){
     market->audit_on = ui->cb_Audit->isChecked();
-    market->audit.reset();
 }
